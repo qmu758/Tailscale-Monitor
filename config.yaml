@@ -1,0 +1,65 @@
+# =========================
+# Discord通知設定
+# =========================
+# DiscordのWebhook URLを貼り付け
+# 例：https://discord.com/api/webhooks/xxxx
+webhook_url: "https://discord.com/api/webhooks/xxxx"
+
+
+
+# =========================
+# 動作設定
+# =========================
+# チェック間隔（秒）
+# 10～30秒がおすすめ
+interval: 10
+
+# 状態がこの秒数続いたら通知
+# 短すぎると誤検知が増える
+stable_seconds: 30   # 30秒継続で通知
+
+
+
+# =========================
+# 監視対象ノード
+# =========================
+nodes:
+  - name: "main-server"        # Tailscale上のマシン表示名
+    alias: "メインサーバー"     # 日本語表示名（お好みで設定可能）
+    address: "100.xxx.xxx.xxx" # Tailscale上のIPアドレス（ローカルIPは不可❌　例：192.168.1.1）
+
+  - name: "remote-server1"
+    alias: "リモートサーバー1"
+    address: "100.xxx.xxx.xxx"
+
+  - name: "remote-server2"
+    alias: "リモートサーバー2"
+    address: "100.xxx.xxx.xxx"
+
+  - name: "remote-server3"
+    alias: "リモートサーバー3"
+    address: "100.xxx.xxx.xxx"
+
+  - name: "remote-server4"
+    alias: "リモートサーバー4"
+    address: "100.xxx.xxx.xxx"
+
+
+
+# =========================
+# Ping設定
+# =========================
+ping:
+  enabled: true        # ping監視を使う（true推奨）
+
+  # 連続失敗回数でOFF判定
+  # 3～5がおすすめ
+  fail_threshold: 3
+
+
+
+# =========================
+# その他オプション
+# =========================
+# 共有マシンも監視するか
+include_shared: false     # 何も設定しない場合trueとして扱う
